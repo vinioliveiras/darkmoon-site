@@ -85,16 +85,18 @@
 <main>
   <article class="wrap">
     <h1>darkmoon — Privacy Policy</h1>
-    <p>Last updated: 14 September 2026</p>
+    <p>Last updated: 18 September 2026</p>
     <h2>The short version</h2>
     <p>darkmoon runs on your computer. Your photographs, your edits, your
     catalogue and your presets stay there. We do not collect them, we do not
     see them, and we have no server for them to go to.</p>
-    <p>There is no account to make, no analytics, no crash reporting, no usage
-    tracking and no update check. The application does not contact us at all.</p>
-    <p>One feature sends an image off your machine, and only when you turn it on
-    yourself: <strong>Cloud AI</strong>. Section 3 covers exactly what it sends and to
-    whom.</p>
+    <p>There is no account to make, no analytics, no crash reporting and no
+    usage tracking.</p>
+    <p>Two things do leave your machine, and section 3 and section 5 say exactly
+    what each one sends. <strong>Cloud AI</strong> sends an image, and only when you turn
+    it on yourself. A <strong>licence check</strong> sends your licence key about once a
+    week, and nothing else — no photograph, no filename, nothing about what
+    you edit.</p>
     <h2>1. Who we are</h2>
     <p>Vinicius Oliveira, the author of darkmoon. Contact:
     <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#118;&#105;&#110;&#105;&#99;&#105;&#117;&#115;&#102;&#111;&#115;&#49;&#57;&#57;&#54;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#118;&#105;&#110;&#105;&#99;&#105;&#117;&#115;&#102;&#111;&#115;&#49;&#57;&#57;&#54;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>.</p>
@@ -135,7 +137,7 @@
     and writes only the files you explicitly export.</p>
     <p>You can delete any of this at any time; the application rebuilds what it
     needs. Deleting the <code>darkmoon/</code> folder resets it to a fresh install.</p>
-    <h2>3. Cloud AI — the one thing that leaves your machine</h2>
+    <h2>3. Cloud AI — the one thing that sends a photograph</h2>
     <p>The AI Denoise window has a <strong>Cloud AI</strong> tab. It is off by default. To use
     it you have to pick a provider and paste an API key that you obtained from
     that provider yourself.</p>
@@ -160,30 +162,58 @@
     account on that machine: another account, and another computer, cannot
     read them. They are sent to nobody except the provider they belong to.</p>
     <p>You can remove a key by clearing the field in the Cloud AI tab.</p>
-    <h2>5. What we collect</h2>
+    <h2>5. Your licence</h2>
+    <p>darkmoon is paid for by subscription, and it checks that the subscription
+    is still running. That check is the only request the application makes on
+    its own.</p>
+    <p><strong>Where it goes.</strong> To Lemon Squeezy (<code>api.lemonsqueezy.com</code>), who sell
+    darkmoon and issue the licence keys. Not to us: we run no server, and we
+    never see the request.</p>
+    <p><strong>What it sends.</strong> Your licence key, and a name for this computer so that
+    you can tell your three activations apart in your own account. Nothing
+    else. Not a photograph, not a filename, not a setting, not a word about
+    what you edit or when.</p>
+    <p><strong>How often.</strong> About once a week, in the background. If it cannot reach
+    them — you are offline, they are down, a hotel network is in the way —
+    darkmoon carries on for thirty days before anything changes, and not
+    being able to ask is never treated as a refusal.</p>
+    <p><strong>What is stored on your machine.</strong> Your key, the identifier of this
+    activation and the date of the last successful check, encrypted at rest
+    with Windows DPAPI, tied to your account on this computer. You can remove
+    all of it from Settings, which also releases this machine's activation so
+    you can use it on another.</p>
+    <p>Lemon Squeezy is the merchant of record for the sale. What they hold —
+    your email address, your payment details, your invoices — is theirs and
+    governed by their privacy policy, and the same is true of any refund or
+    tax obligation attached to it. We never see your card, and the
+    application never asks you for one.</p>
+    <h2>6. What we collect</h2>
     <p>Nothing.</p>
     <p>To be concrete rather than reassuring: the only code in darkmoon that
     opens a network connection is the Cloud AI providers described in section
-    3. There is no analytics library, no crash reporter, no telemetry, no
-    licence check and no update check in the application.</p>
-    <p>If that ever changes — a licence activation, for example, would have to
-    contact a server — this document will be updated before the version that
-    does it ships, and the change will be described in the release notes.</p>
-    <h2>6. Children</h2>
+    3 and the licence check described in section 5. There is no analytics
+    library, no crash reporter, no telemetry and no update check in the
+    application, and nothing reaches a server of ours, because we do not run
+    one.</p>
+    <p>The licence check is between your computer and Lemon Squeezy. We learn
+    from it only what any shop learns: that somebody's subscription is
+    running. We cannot tell from it which photographs you opened, or that you
+    opened any.</p>
+    <h2>7. Children</h2>
     <p>darkmoon is a photo editor for general use. It is not directed at
     children and we knowingly collect no data from anyone, of any age.</p>
-    <h2>7. Your rights</h2>
+    <h2>8. Your rights</h2>
     <p>Since we hold no personal data about you, there is nothing for us to
     show you, correct or delete. Data protection law — including the GDPR,
     where it applies — gives you rights over data a company holds about you;
     in our case the honest answer is that the set is empty.</p>
     <p>For the photographs you choose to send through Cloud AI, the rights you
     have are against that provider, and you exercise them with that provider.</p>
-    <h2>8. Changes to this policy</h2>
+    <h2>9. Changes to this policy</h2>
     <p>We may update this policy. The version that ships inside a release of
     darkmoon is the one that applies to that release, and the date at the top
     says when it was last changed.</p>
-    <h2>9. Contact</h2>
+    <h2>10. Contact</h2>
     <p>Questions about this policy: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#118;&#105;&#110;&#105;&#99;&#105;&#117;&#115;&#102;&#111;&#115;&#49;&#57;&#57;&#54;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#118;&#105;&#110;&#105;&#99;&#105;&#117;&#115;&#102;&#111;&#115;&#49;&#57;&#57;&#54;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>.</p>
   </article>
 </main>
