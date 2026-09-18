@@ -765,10 +765,11 @@
           <b>€5.99</b>
           <span>/ month</span>
         </div>
+        <p class="price-note" id="local-price" hidden style="flex:0 0 100%;margin:0;color:var(--ink-faint)"></p>
         <p class="price-note">
           Plus VAT where your country charges it. &euro;59.99 for a year is
           two months off, and &euro;69.99 once is the founder's licence &mdash;
-          every version, for ever, at that price until September 2027. Billed
+          every version, for ever, at that price until 25 December 2026. Billed
           by Lemon Squeezy; cancel from your own account, any time.
         </p>
         <span class="btn btn-primary store-closed-only" style="opacity:.5;pointer-events:none;cursor:default">Opening soon</span>
@@ -779,7 +780,7 @@
         <div class="feature" style="background:var(--surface-raised)">
           <span class="eyebrow">Or once</span>
           <h3><s style="color:var(--ink-faint);text-decoration-thickness:1px">&euro;99.99</s> &euro;69.99</h3>
-          <p>One payment, every version for ever, and no subscription to think about again. &euro;69.99 until <strong>18 September 2027</strong>, then &euro;99.99: it is priced for the people who back something early, and that is the whole of the offer — the licence is the same one either way.</p>
+          <p>One payment, every version for ever, and no subscription to think about again. &euro;69.99 until <strong>25 December 2026</strong>, then &euro;99.99: it is priced for the people who back something early, and that is the whole of the offer — the licence is the same one either way.</p>
           <p style="margin-top:12px">
             <a class="btn btn-ghost store-only" href="https://darkmoon.lemonsqueezy.com/checkout/buy/598a15c2-8e05-4be6-8ac1-10b03589810b?checkout%5Bdiscount_code%5D=FOUNDERS" target="_blank" rel="noopener">Take the founder's price</a>
           </p>
@@ -808,6 +809,16 @@
           <span class="eyebrow">If it ends</span>
           <h3>Never locked out of your work</h3>
           <p>When a subscription stops, darkmoon does not. The library opens, the catalogue opens, and every edit you made stays readable; new edits and exporting are what switch off. Your photographs are yours, and a lapsed invoice is not a reason to stand between you and them.</p>
+        </div>
+        <div class="feature">
+          <span class="eyebrow">Paying from elsewhere</span>
+          <h3>Priced in euros, paid in yours</h3>
+          <p>Everything is priced in euros and your bank converts at its own rate, adding whatever it charges for a purchase abroad. The figures below the price are today's conversion, for a sense of scale rather than a promise  + M +  the euro amount is the one that is charged.</p>
+        </div>
+        <div class="feature">
+          <span class="eyebrow">For the accountant</span>
+          <h3>A proper invoice, and VAT handled</h3>
+          <p>Lemon Squeezy is the merchant of record, which means they work out the VAT for your country, collect it, and send you an invoice you can put in the books. A business number can go on it at checkout.</p>
         </div>
         <div class="feature">
           <span class="eyebrow">Privacy</span>
@@ -1004,6 +1015,53 @@
   <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
   <img alt="">
 </div>
+
+
+<script>
+  // An approximate price in the visitor's own money, from a rate table
+  // baked into the page and dated. No request to anybody: a landing page
+  // that promises no analytics should not phone a currency API either,
+  // and a figure that is explicitly "about, on this date" is honest
+  // without being live.
+  (function () {
+    var rates = {
+      BRL: [5.8981, 'R$ ', 0], USD: [1.1486, '$', 2], GBP: [0.8590, '\u00a3', 2],
+      CAD: [1.6058, 'CA$ ', 2], AUD: [1.6138, 'A$ ', 2], CHF: [0.9465, 'CHF ', 2],
+      PLN: [4.3585, 'z\u0142 ', 0], JPY: [179.02, '\u00a5', 0],
+      MXN: [19.7133, 'MX$ ', 0], INR: [110.07, '\u20b9', 0]
+    };
+    var byCountry = {
+      BR: 'BRL', US: 'USD', GB: 'GBP', CA: 'CAD', AU: 'AUD', NZ: 'AUD',
+      CH: 'CHF', PL: 'PLN', JP: 'JPY', MX: 'MXN', IN: 'INR'
+    };
+    var el = document.getElementById('local-price');
+    if (!el) { return; }
+
+    var country = null;
+    try {
+      var loc = new Intl.Locale(navigator.language);
+      country = loc.region || null;
+    } catch (e) { /* older browsers: fall through */ }
+    if (!country && navigator.language && navigator.language.indexOf('-') > 0) {
+      country = navigator.language.split('-').pop().toUpperCase();
+    }
+
+    var code = byCountry[country];
+    if (!code) { return; }
+    var rate = rates[code][0], symbol = rates[code][1], places = rates[code][2];
+
+    function money(euros) {
+      var v = euros * rate;
+      return symbol + v.toFixed(places).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+
+    el.textContent =
+      'About ' + money(5.99) + ' a month, ' + money(59.99) + ' a year or ' +
+      money(69.99) + ' once, at the rate on 18 September 2026. You are charged '
+      + 'in euros; your bank converts.';
+    el.hidden = false;
+  })();
+</script>
 
 <script>
   // Every screenshot opens full size. No library: one overlay, one image
